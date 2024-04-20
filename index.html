@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div id="display"></div>
+    </div>
+    <script>
+      //   const data = {
+      //     name: "David",
+      //     age: 20,
+      //     place: "England",
+      //   };
+
+      //   const arrFromObj = Object.keys(data);
+      //   console.log(arrFromObj.length);
+
+      function ekorfun(a) {
+        return a;
+      }
+      function arrayBanao(name, age, place) {
+        const data = {
+          name: name,
+          age: age,
+          place: place,
+        };
+        console.log(ekorfun(12));
+
+        return data;
+      }
+      console.log(arrayBanao("hari", 30, "delhi"));
+      console.log(arrayBanao("vani", 29, "bangalore"));
+
+      async function dataFetch() {
+        try {
+          const postData = await fetch(
+            "https://jsonplaceholder.typicode.com/posts"
+          );
+          const postArrdata = await postData.json();
+          const display = document.getElementById("display");
+          // Clear the existing content
+          display.innerHTML = "";
+          postArrdata.forEach((element) => {
+            const postdiv = document.createElement("div");
+            postdiv.innerHTML = `<h1>Title: ${element.title}</h1> <p>${element.body}</p>`;
+            display.appendChild(postdiv);
+          });
+        } catch (error) {
+          console.log("error");
+        }
+      }
+
+      dataFetch();
+    </script>
+  </body>
+</html>
