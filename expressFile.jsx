@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
 });
 
 app.get("/", function (req, res) {
-  res.send("welcome to express routing");
+  res.render("index");
 });
 
 app.get("/about", function (req, res) {
