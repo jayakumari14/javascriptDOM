@@ -20,9 +20,14 @@ app.get("/about", function (req, res) {
   res.send("welcome to About Page");
 });
 
-app.use("/profile", function (req, res) {
+app.get("/profile/:username", function (req, res) {
   //   return next(new Error("something went wrong"));
-  res.send("profile working");
+  res.send(`${req.params.username}`);
+  //   res.render();
+});
+
+app.get("/profile/:username/:age", function (req, res) {
+  res.send(req.params);
 });
 
 // app.use((err, req, res, next) => {
